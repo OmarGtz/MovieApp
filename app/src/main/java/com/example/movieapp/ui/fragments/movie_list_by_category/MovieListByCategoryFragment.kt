@@ -5,9 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.movieapp.R
+import com.example.movieapp.api.ApiService
 import com.example.movieapp.ui.adapters.AllMoviesAdapter
 
 
@@ -19,31 +22,27 @@ class MovieListByCategoryFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         return inflater.inflate(R.layout.fragment_movie_list_by_category, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        postToList()
-        initRvCategoryMovies()
-    }
-
-    private fun addMovieToList(image:Int){
-        imagesListCategoryMovies.add(image)
-    }
-
-    private fun postToList(){
-        for (i in 1..16){
-            addMovieToList(R.drawable.movie_example)
+        lifecycleScope.launchWhenCreated {
+            val movies = ApiService.service.discoverMovies()
+            initRvCategoryMovies(movies.results)
         }
     }
 
-    private fun initRvCategoryMovies(){
-        val rvByCategoriesMovies = view?.findViewById<RecyclerView>(R.id.rvCategoryListMovies)
-        rvByCategoriesMovies?.layoutManager = GridLayoutManager(context,2)
-        val adapter = AllMoviesAdapter(imagesListCategoryMovies)
-        rvByCategoriesMovies?.adapter = adapter
+    private fun addMovieToList(image: Int) {
+        imagesListCategoryMovies.add(image)
+    }
 
+    private fun initRvCategoryMovies(list: List<com.example.movieapp.api.Result>) {
+        val rvByCategoriesMovies = view?.findViewById<RecyclerView>(R.id.rvCategoryListMovies)
+        rvByCategoriesMovies?.layoutManager = GridLayoutManager(context, 2)
+        val adapter = AllMoviesAdapter(list) {
+            Toast.makeText(requireContext(), "Add event to navigate", Toast.LENGTH_SHORT).show()
+        }
+        rvByCategoriesMovies?.adapter = adapter
     }
 }

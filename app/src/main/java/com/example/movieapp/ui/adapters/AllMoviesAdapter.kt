@@ -2,22 +2,27 @@ package com.example.movieapp.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.movieapp.R
+import com.example.movieapp.api.Result
+import com.example.movieapp.toMovieUrl
 
-class AllMoviesAdapter (private var imageList:List<Int>):RecyclerView.Adapter<AllMoviesAdapter.MovieHolder>() {
+class AllMoviesAdapter (private var imageList:List<Result>, val onClick: (Result) -> Unit):RecyclerView.Adapter<AllMoviesAdapter.MovieHolder>() {
     inner class MovieHolder(itemView: View):RecyclerView.ViewHolder(itemView) {
+
         val itemImage: ImageView = itemView.findViewById(R.id.ivMovie)
 
-        init {
-            itemImage.setOnClickListener {
-                val position = adapterPosition
-                Toast.makeText(itemView.context, "Item clicked #${position + 1}", Toast.LENGTH_SHORT).show()
-
+        fun bind(item:Result, onClick: (Result) -> Unit) {
+            itemView.setOnClickListener {
+                onClick(item)
             }
+            Glide.with(itemView.context)
+                .load(item.poster_path.toMovieUrl())
+                .into(itemImage)
         }
     }
 
@@ -26,7 +31,7 @@ class AllMoviesAdapter (private var imageList:List<Int>):RecyclerView.Adapter<Al
     }
 
     override fun onBindViewHolder(holder: MovieHolder, position: Int) {
-        holder.itemImage.setImageResource(imageList[position])
+        holder.bind(imageList[position], onClick = onClick)
     }
 
     override fun getItemCount(): Int {
