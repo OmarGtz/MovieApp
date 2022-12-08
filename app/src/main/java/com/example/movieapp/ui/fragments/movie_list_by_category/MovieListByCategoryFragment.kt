@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.movieapp.R
@@ -41,7 +43,13 @@ class MovieListByCategoryFragment : Fragment() {
         val rvByCategoriesMovies = view?.findViewById<RecyclerView>(R.id.rvCategoryListMovies)
         rvByCategoriesMovies?.layoutManager = GridLayoutManager(context, 2)
         val adapter = AllMoviesAdapter(list) {
-            Toast.makeText(requireContext(), "Add event to navigate", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_movieListByCategoryFragment_to_movieDetailFragment,
+                bundleOf(
+                    "title" to it.title,
+                    "backdrop_path" to it.backdrop_path,
+                    "poster_path" to it.poster_path,
+                    "overview" to it.overview,
+                    "release_date" to it.release_date))
         }
         rvByCategoriesMovies?.adapter = adapter
     }

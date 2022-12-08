@@ -9,10 +9,10 @@
     <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Movil_Detail_Activity">
+    tools:context=".ui.MovieDetailFragment">
 
         <ImageView
-            android:id="@+id/imageView7"
+            android:id="@+id/iv_backdrop_path"
             android:layout_width="match_parent"
             android:layout_height="188dp"
             android:scaleType="centerCrop"
@@ -22,18 +22,18 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/iv_poster_path"
             android:layout_width="188dp"
             android:layout_height="283dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:scaleType="fitCenter"
             android:src="@drawable/endgame"
-            app:layout_constraintStart_toStartOf="@+id/imageView7"
-            app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+            app:layout_constraintStart_toStartOf="@+id/iv_backdrop_path"
+            app:layout_constraintTop_toBottomOf="@+id/iv_backdrop_path" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/title_detail_movie"
             android:layout_width="wrap_content"
             android:layout_height="45dp"
             android:layout_marginStart="20dp"
@@ -43,8 +43,8 @@
             android:textColor="#FEFEFE"
             android:textSize="34sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/imageView7"
-            app:layout_constraintTop_toTopOf="@+id/imageView7" />
+            app:layout_constraintStart_toStartOf="@+id/iv_backdrop_path"
+            app:layout_constraintTop_toTopOf="@+id/iv_backdrop_path" />
 
     <TextView
         android:id="@+id/textView2"
@@ -55,8 +55,8 @@
         android:textAlignment="viewStart"
         android:textColor="#000000"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="@+id/imageView3" />
+        app:layout_constraintStart_toEndOf="@+id/iv_poster_path"
+        app:layout_constraintTop_toTopOf="@+id/iv_poster_path" />
 
     <TextView
         android:id="@+id/textView3"
@@ -119,8 +119,8 @@
         android:textAlignment="viewStart"
         android:textColor="#000000"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="@+id/imageView3" />
+        app:layout_constraintStart_toEndOf="@+id/iv_poster_path"
+        app:layout_constraintTop_toTopOf="@+id/iv_poster_path" />
 
     <TextView
         android:id="@+id/textView8"
@@ -171,7 +171,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     <TextView
-        android:id="@+id/dayhourtext"
+        android:id="@+id/tv_release_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -191,11 +191,11 @@
         android:textAlignment="viewStart"
         android:textColor="#000000"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintStart_toStartOf="@+id/iv_poster_path"
+        app:layout_constraintTop_toBottomOf="@+id/iv_poster_path" />
 
     <TextView
-        android:id="@+id/aboutshowcontenttext"
+        android:id="@+id/tv_overview"
         android:layout_width="380dp"
         android:layout_height="80dp"
         android:layout_marginTop="10dp"
@@ -215,8 +215,8 @@
         android:textAlignment="viewStart"
         android:textColor="#000000"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/aboutshowcontenttext"
-        app:layout_constraintTop_toBottomOf="@+id/aboutshowcontenttext" />
+        app:layout_constraintStart_toStartOf="@+id/tv_overview"
+        app:layout_constraintTop_toBottomOf="@+id/tv_overview" />
 
     <ImageView
         android:id="@+id/imageView5"
@@ -225,8 +225,8 @@
         android:layout_marginStart="13dp"
         android:layout_marginTop="28dp"
         android:src="@drawable/estrellita"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="@+id/imageView3" />
+        app:layout_constraintStart_toEndOf="@+id/iv_poster_path"
+        app:layout_constraintTop_toTopOf="@+id/iv_poster_path" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
