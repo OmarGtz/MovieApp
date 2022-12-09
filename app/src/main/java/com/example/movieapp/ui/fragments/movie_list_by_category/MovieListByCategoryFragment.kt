@@ -45,11 +45,12 @@ class MovieListByCategoryFragment : Fragment() {
         val adapter = AllMoviesAdapter(list) {
             findNavController().navigate(R.id.action_movieListByCategoryFragment_to_movieDetailFragment,
                 bundleOf(
-                    "title" to it.title,
-                    "backdrop_path" to it.backdrop_path,
-                    "poster_path" to it.poster_path,
-                    "overview" to it.overview,
-                    "release_date" to it.release_date))
+                    "id" to it.id))
+//                    "title" to it.title,
+//                    "backdrop_path" to it.backdrop_path,
+//                    "poster_path" to it.poster_path,
+//                    "overview" to it.overview,
+//                    "release_date" to it.release_date))
         }
         rvByCategoriesMovies?.adapter = adapter
     }
