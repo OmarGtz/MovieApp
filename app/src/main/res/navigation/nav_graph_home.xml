@@ -8,6 +8,15 @@
         android:id="@+id/movieListByCategoryFragment"
         android:name="com.example.movieapp.ui.fragments.movie_list_by_category.MovieListByCategoryFragment"
         android:label="fragment_movie_list_by_category"
-        tools:layout="@layout/fragment_movie_list_by_category" />
+        tools:layout="@layout/fragment_movie_list_by_category" >
+        <action
+            android:id="@+id/action_movieListByCategoryFragment_to_movieDetailFragment"
+            app:destination="@id/movieDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieDetailFragment"
+        android:name="com.example.movieapp.ui.MovieDetailFragment"
+        android:label="MovieDetailFragment"
+        tools:layout="@layout/activity_movil_detail"/>
 
 </navigation>
