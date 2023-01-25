@@ -1,4 +1,4 @@
-package com.example.movieapp.api
+package com.example.movieapp.data.api
 
 data class DiscoverResponse(
     val page: Int,
