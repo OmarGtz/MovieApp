@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.movie_list_by_category.MovieListByCategoryFragment">
+    tools:context=".presentation.home.movie_list_by_category.view.MovieListByCategoryFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvCategoryListMovies"

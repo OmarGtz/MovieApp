@@ -1,6 +1,6 @@
-package com.example.movieapp.data.api
+package com.example.movieapp.di
 
-import com.example.movieapp.data.MovieApi
+import com.example.movieapp.data.api.MovieApi
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 

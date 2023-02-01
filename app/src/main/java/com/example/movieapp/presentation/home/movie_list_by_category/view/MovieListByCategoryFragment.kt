@@ -1,4 +1,4 @@
-package com.example.movieapp.ui.fragments.movie_list_by_category
+package com.example.movieapp.presentation.home.movie_list_by_category.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,18 +8,20 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.movieapp.R
-import com.example.movieapp.ui.adapters.AllMoviesAdapter
+import com.example.movieapp.presentation.adapters.AllMoviesAdapter
+import com.example.movieapp.presentation.home.movie_list_by_category.viewmodel.MovieListViewModel
 
 
 class MovieListByCategoryFragment : Fragment() {
 
     private var imagesListCategoryMovies = mutableListOf<Int>()
+    private lateinit var viewModel: MovieListViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
+        subscribeMovies()
         return inflater.inflate(R.layout.fragment_movie_list_by_category, container, false)
     }
 
@@ -27,6 +29,7 @@ class MovieListByCategoryFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         postToList()
         initRvCategoryMovies()
+        viewModel.getMovies()
     }
 
     private fun addMovieToList(image:Int){
@@ -44,6 +47,11 @@ class MovieListByCategoryFragment : Fragment() {
         rvByCategoriesMovies?.layoutManager = GridLayoutManager(context,2)
         val adapter = AllMoviesAdapter(imagesListCategoryMovies)
         rvByCategoriesMovies?.adapter = adapter
+    }
 
+    private fun subscribeMovies() {
+        viewModel.movies.observe(viewLifecycleOwner) {
+            // MOSTRAR LA LISTA
+        }
     }
 }

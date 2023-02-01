@@ -1,11 +1,10 @@
-package com.example.movieapp.ui
+package com.example.movieapp.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.lifecycleScope
 import com.example.movieapp.R
-import com.example.movieapp.data.api.ApiService
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,8 +13,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         lifecycleScope.launchWhenStarted {
-            val discoverResponse = ApiService.service.discoverMovies()
-            Log.i("discoverResponse", discoverResponse.results.toString())
+//            val discoverResponse = ApiService.service.discoverMovies()
+//            Log.i("discoverResponse", discoverResponse.results.toString())
         }
     }
 }

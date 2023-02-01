@@ -1,6 +1,6 @@
 package com.example.movieapp.data.api
 
-data class Result(
+data class MovieDTO(
     val adult: Boolean,
     val backdrop_path: String,
     val genre_ids: List<Int>,

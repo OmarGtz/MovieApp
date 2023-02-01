@@ -15,11 +15,11 @@
         android:theme="@style/Theme.MovieApp"
         tools:targetApi="31">
         <activity
-            android:name=".ui.Movil_Detail_Activity"
+            android:name=".presentation.Movil_Detail_Activity"
             android:exported="true">
         </activity>
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".presentation.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.MainActivity">
+    tools:context=".presentation.MainActivity">
 
     <fragment
         android:id="@+id/fragmentoContainer"
-        android:name="com.example.movieapp.ui.fragments.movie_list_by_category.MovieListByCategoryFragment"
+        android:name="com.example.movieapp.presentation.home.movie_list_by_category.view.MovieListByCategoryFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
