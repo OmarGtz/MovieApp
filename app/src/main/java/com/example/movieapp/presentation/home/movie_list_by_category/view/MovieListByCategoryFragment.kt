@@ -5,17 +5,21 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.movieapp.R
 import com.example.movieapp.presentation.adapters.AllMoviesAdapter
 import com.example.movieapp.presentation.home.movie_list_by_category.viewmodel.MovieListViewModel
+import com.example.movieapp.utils.getViewModelFactory
 
 
 class MovieListByCategoryFragment : Fragment() {
 
     private var imagesListCategoryMovies = mutableListOf<Int>()
-    private lateinit var viewModel: MovieListViewModel
+    private val viewModel: MovieListViewModel by viewModels {
+        getViewModelFactory()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

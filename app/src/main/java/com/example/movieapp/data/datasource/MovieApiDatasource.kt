@@ -13,6 +13,7 @@ class MovieApiDatasource(val api: MovieApi): MovieDatasource {
             try {
                 val result = api.discoverMovies()
                 MovieResult.Success(result.results)
+
             } catch (e: Exception) {
                 MovieResult.Error(e)
             }

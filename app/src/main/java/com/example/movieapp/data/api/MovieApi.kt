@@ -1,6 +1,5 @@
 package com.example.movieapp.data.api
 
-import com.example.movieapp.data.api.DiscoverResponse
 import retrofit2.http.GET
 
 interface MovieApi {
