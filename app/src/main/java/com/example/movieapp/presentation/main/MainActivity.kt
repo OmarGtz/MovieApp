@@ -1,13 +1,12 @@
-package com.example.movieapp.presentation
+package com.example.movieapp.presentation.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.movieapp.R
 
-class Movil_Detail_Activity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_movil_detail)
+        setContentView(R.layout.activity_main)
     }
-    //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
 }

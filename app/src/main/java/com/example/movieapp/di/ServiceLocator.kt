@@ -13,7 +13,7 @@ const val BASE_URL = "https://api.themoviedb.org/3/"
 object ServiceLocator {
 
     @Volatile
-    var repository: MovieRepository? = null
+    private var repository: MovieRepository? = null
 
 
     fun provideRepository(): MovieRepository {
@@ -21,14 +21,15 @@ object ServiceLocator {
     }
 
     private fun createRepository(): MovieRepository {
-        return MovieRepositoryImpl(createRemoteDataSource())
+        repository = MovieRepositoryImpl(createRemoteDataSource())
+        return repository!!
     }
 
     private fun createRemoteDataSource(): MovieDatasource {
         return MovieApiDatasource(service)
     }
 
-    val service: MovieApi by lazy {
+    private val service: MovieApi by lazy {
         retrofit.create(MovieApi::class.java)
     }
 
