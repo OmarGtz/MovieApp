@@ -10,19 +10,19 @@ import com.bumptech.glide.Glide
 import com.example.movieapp.R
 import com.example.movieapp.presentation.home.model.MovieUI
 
-class AllMoviesAdapter(val onClickListener: () -> Unit) : RecyclerView.Adapter<AllMoviesAdapter.MovieHolder>() {
+class AllMoviesAdapter(val onClickListener: (String) -> Unit) : RecyclerView.Adapter<AllMoviesAdapter.MovieHolder>() {
 
     private var movies: List<MovieUI> = mutableListOf()
 
     inner class MovieHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val itemImage: ImageView = itemView.findViewById(R.id.ivMovie)
 
-        fun bind(movie: MovieUI, onClickListener: () -> Unit) {
+        fun bind(movie: MovieUI, onClickListener: (String) -> Unit) {
             Glide.with(itemView.context)
                 .load(movie.imageUrl)
                 .into(itemImage)
             itemImage.setOnClickListener {
-                onClickListener()
+                onClickListener(" ")
             }
         }
     }

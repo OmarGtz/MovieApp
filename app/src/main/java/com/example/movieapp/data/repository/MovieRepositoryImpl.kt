@@ -1,7 +1,8 @@
 package com.example.movieapp.data.repository
-import com.example.movieapp.data.api.MovieDTO
+import com.example.movieapp.data.model.MovieDTO
 import com.example.movieapp.data.datasource.MovieDatasource
 import com.example.movieapp.data.model.MovieResult
+import com.example.movieapp.data.model.moviedetail.MovieDetailDTO
 
 class MovieRepositoryImpl(val datasource: MovieDatasource): MovieRepository {
 
@@ -9,9 +10,7 @@ class MovieRepositoryImpl(val datasource: MovieDatasource): MovieRepository {
         return datasource.getMovies()
     }
 
-    override suspend fun getMovieDetail(): MovieDTO {
-        TODO("Not yet implemented")
+    override suspend fun getMovieDetail(id: String): MovieResult<MovieDetailDTO> {
+        return datasource.getMovieDetail(id)
     }
-
 }
-
