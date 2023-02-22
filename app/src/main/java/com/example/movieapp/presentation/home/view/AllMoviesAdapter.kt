@@ -22,7 +22,7 @@ class AllMoviesAdapter(val onClickListener: (String) -> Unit) : RecyclerView.Ada
                 .load(movie.imageUrl)
                 .into(itemImage)
             itemImage.setOnClickListener {
-                onClickListener(" ")
+                onClickListener(movie.id)
             }
         }
     }
