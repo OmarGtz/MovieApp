@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -19,7 +20,9 @@ class HomeFragment : Fragment() {
     }
 
     private val movieAdapter: AllMoviesAdapter = AllMoviesAdapter {
-        findNavController().navigate(R.id.action_homeFragment_to_movieDetailFragment)
+        findNavController().navigate(R.id.action_homeFragment_to_movieDetailFragment,
+        bundleOf(
+            "id" to it))
     }
 
     override fun onCreateView(

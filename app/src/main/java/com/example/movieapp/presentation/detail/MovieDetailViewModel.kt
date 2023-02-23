@@ -1,5 +1,6 @@
 package com.example.movieapp.presentation.detail
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -22,7 +23,7 @@ class MovieDetailViewModel(val repository: MovieRepository): ViewModel() {
                     _detail.value = result.data!!
                 }
                 is MovieResult.Error -> {
-                    // Handle errors
+                    Log.e("ERROR", result.error.message ?: "Error desconocido")
                 }
             }
         }
