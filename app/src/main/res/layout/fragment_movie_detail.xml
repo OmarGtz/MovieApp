@@ -239,6 +239,6 @@
             android:src="@drawable/estrellita"
             app:layout_constraintStart_toEndOf="@+id/iv_poster_path"
             app:layout_constraintTop_toTopOf="@+id/iv_poster_path" />
-        
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
