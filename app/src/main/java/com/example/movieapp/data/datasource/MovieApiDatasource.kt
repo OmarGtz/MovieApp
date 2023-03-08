@@ -6,8 +6,9 @@ import com.example.movieapp.data.model.MovieResult
 import com.example.movieapp.data.model.moviedetail.MovieDetailDTO
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
-class MovieApiDatasource(val api: MovieApi): MovieDatasource {
+class MovieApiDatasource @Inject constructor(val api: MovieApi): MovieDatasource {
 
     override suspend fun getMovies(): MovieResult<List<MovieDTO>> {
         return withContext(Dispatchers.IO) {

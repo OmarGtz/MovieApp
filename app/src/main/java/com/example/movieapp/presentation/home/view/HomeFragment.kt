@@ -11,19 +11,22 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.movieapp.R
+import com.example.movieapp.databinding.FragmentHomeBinding
 import com.example.movieapp.presentation.home.viewmodel.HomeViewModel
-import com.example.movieapp.utils.getViewModelFactory
-class HomeFragment : Fragment() {
+import dagger.hilt.android.AndroidEntryPoint
 
-    private val viewModel: HomeViewModel by viewModels {
-        getViewModelFactory()
-    }
+@AndroidEntryPoint
+class HomeFragment: Fragment() {
+
+    private val viewModel: HomeViewModel by viewModels()
 
     private val movieAdapter: AllMoviesAdapter = AllMoviesAdapter {
         findNavController().navigate(R.id.action_homeFragment_to_movieDetailFragment,
         bundleOf(
             "id" to it))
     }
+
+    var binding: FragmentHomeBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,6 +40,11 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initRvCategoryMovies()
         viewModel.getMovies()
+    }
+
+    override fun onDestroyView() {
+        binding = null
+        super.onDestroyView()
     }
 
     private fun initRvCategoryMovies(){

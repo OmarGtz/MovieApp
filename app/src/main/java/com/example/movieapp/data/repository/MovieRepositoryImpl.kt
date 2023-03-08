@@ -3,8 +3,9 @@ import com.example.movieapp.data.model.MovieDTO
 import com.example.movieapp.data.datasource.MovieDatasource
 import com.example.movieapp.data.model.MovieResult
 import com.example.movieapp.data.model.moviedetail.MovieDetailDTO
+import javax.inject.Inject
 
-class MovieRepositoryImpl(val datasource: MovieDatasource): MovieRepository {
+class MovieRepositoryImpl @Inject constructor(val datasource: MovieDatasource): MovieRepository {
 
     override suspend fun getMovies(): MovieResult<List<MovieDTO>> {
         return datasource.getMovies()
@@ -13,4 +14,5 @@ class MovieRepositoryImpl(val datasource: MovieDatasource): MovieRepository {
     override suspend fun getMovieDetail(id: String): MovieResult<MovieDetailDTO> {
         return datasource.getMovieDetail(id)
     }
+
 }
