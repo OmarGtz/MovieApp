@@ -1,6 +1,6 @@
 package com.example.movieapp.presentation.detail
 
-import com.example.movieapp.data.model.moviedetail.MovieDetailDTO
+import com.example.movieapp.domain.entities.Movie
 
 data class MovieDetailUI(
     val title: String,
@@ -8,22 +8,16 @@ data class MovieDetailUI(
     val overview: String,
     val posterPath: String,
     val releaseDate: String,
-    val status: String,
-    val porcentCount: Double,
-    val votesCount: Int,
-    val runtime: Int
+    val votesCount: Int
 )
 
-fun MovieDetailDTO.toUIDetail(): MovieDetailUI{
+fun Movie.toUIDetail(): MovieDetailUI{
     return MovieDetailUI(
         title = this.title,
-        backdropPath = this.backdrop_path,
-        overview = this.overview,
-        posterPath = this.poster_path,
-        releaseDate = this.release_date,
-        status = this.status,
-        porcentCount = this.vote_average,
-        votesCount = this.vote_count,
-        runtime = this.runtime
+        backdropPath = this.backdropPath,
+        overview = this.movieOverview,
+        posterPath = this.posterPath,
+        releaseDate = "",
+        votesCount = this.voteCount
     )
 }

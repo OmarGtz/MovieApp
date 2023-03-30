@@ -1,5 +1,8 @@
 package com.example.movieapp.data.model.moviedetail
 
+import com.example.movieapp.domain.entities.Movie
+import java.util.*
+
 data class MovieDetailDTO(
     val adult: Boolean,
     val backdrop_path: String,
@@ -27,3 +30,18 @@ data class MovieDetailDTO(
     val vote_average: Double,
     val vote_count: Int
 )
+
+fun MovieDetailDTO.toDomain(): Movie {
+    return Movie(
+        adult = adult,
+        backdropPath = backdrop_path,
+        id = id,
+        overview = overview,
+        popularity = popularity,
+        posterPath = poster_path,
+        releaseDate = Date(),
+        title = title,
+        video = video,
+        voteCount = vote_count
+    )
+}

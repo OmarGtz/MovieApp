@@ -1,6 +1,7 @@
 package com.example.movieapp.presentation.home.model
 
 import com.example.movieapp.data.model.MovieDTO
+import com.example.movieapp.domain.entities.Movie
 import com.example.movieapp.utils.toMovieUrl
 
 data class MovieUI(
@@ -8,9 +9,9 @@ data class MovieUI(
     val imageUrl: String
 )
 
-fun MovieDTO.toUI(): MovieUI {
+fun Movie.toUI(): MovieUI {
     return MovieUI(
         id = this.id.toString(),
-        imageUrl = this.poster_path.toMovieUrl()
+        imageUrl = this.posterPath.toMovieUrl()
     )
 }
