@@ -52,16 +52,14 @@ class MovieDetailFragment: Fragment() {
             binding?.apply {
                 titleDetailMovie.text = it.title
                 tvOverview.text = it.overview
-                tvReleaseDate.text = it.release_date
-                tvStatus.text = it.status
-                tvPorcentCount.text = "${it.vote_average*10}"
-                tvVotesCount.text = "${it.vote_count}"
-                tvRuntime.text = "${it.runtime}m"
+                tvReleaseDate.text = it.releaseDate
+                tvPorcentCount.text = "${it.votesCount*10}"
+                tvVotesCount.text = "${it.votesCount}"
                 Glide.with(requireContext())
-                    .load(it.backdrop_path?.toMovieUrl())
+                    .load(it.backdropPath.toMovieUrl())
                     .into(ivBackdropPath)
                 Glide.with(requireContext())
-                    .load(it.poster_path?.toMovieUrl())
+                    .load(it.posterPath.toMovieUrl())
                     .into(ivPosterPath)
             }
         }

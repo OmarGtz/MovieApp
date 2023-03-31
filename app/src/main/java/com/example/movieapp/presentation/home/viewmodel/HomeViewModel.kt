@@ -22,7 +22,7 @@ class HomeViewModel @Inject constructor(val getDiscoveryUseCase: GetDiscoveryUse
 
     fun getMovies() {
         viewModelScope.launch {
-            val result = getDiscoveryUseCase()
+            val result = getDiscoveryUseCase(Unit)
             when (result) {
                 is MovieResult.Error -> { Log.e("ERROR", result.error.message ?: "Error desconocido") }
                 is MovieResult.Success -> {
