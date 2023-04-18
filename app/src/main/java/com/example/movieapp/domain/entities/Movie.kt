@@ -21,7 +21,7 @@ data class Movie(
 
     private val overviewMax = 0 until 200
 
-    val movieOverview = overview.substring(overviewMax)
+    val movieOverview = if (overview.length > 200) overview.substring(0, 199) else overview
 
     fun isAdult() = adult
 

@@ -16,7 +16,7 @@ class NetworkModule {
     @Singleton
     fun providesMovieApi(): MovieApi {
         val builder = Retrofit.Builder()
-            .baseUrl("")
+            .baseUrl("https://api.themoviedb.org/3/")
             .addConverterFactory(MoshiConverterFactory.create())
             .build()
         return builder.create(MovieApi::class.java)

@@ -18,8 +18,6 @@ class GetDiscoveryUseCase @Inject constructor(
         if (movies.isEmpty()) {
             throw NotDataFound()
         }
-        return movies.filter {
-            !it.isAdult() && it.hasVideo()
-        }
+        return movies
     }
 }

@@ -16,7 +16,8 @@ class MovieRepositoryImpl @Inject constructor(val datasource: MovieDatasource) :
             is ApiResponse.ApiEmptyResponse -> throw NotImplementedError("Implement a strategy when the response is empty")
             is ApiResponse.ApiError -> throw NotImplementedError("Implemented estrategy when the api rest throw a error")
             is ApiResponse.ApiSuccessResponse -> {
-                response.body.results.map { it.toDomain() }
+                response.body.results.map {
+                    it.toDomain() }
             }
         }
     }
