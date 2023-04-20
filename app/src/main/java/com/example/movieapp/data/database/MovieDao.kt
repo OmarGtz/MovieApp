@@ -9,10 +9,10 @@ interface MovieDao {
     fun getAllMovies(): List<MovieEntity>
 
     @Insert
-    fun insetMovie(movieEntity: MovieEntity): Int
+    fun insetMovie(movieEntity: MovieEntity)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insetMovie(movie: List<MovieEntity>): Int
+    fun insetMovie(movie: List<MovieEntity>)
 
     @Delete
     fun deleteMovies(movies: List<MovieEntity>)

@@ -6,14 +6,12 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "movies")
 data class MovieEntity(
-    @PrimaryKey @ColumnInfo("id") val id: Int,
-    @ColumnInfo("backdrop_path") val backdropPath: String,
-    @ColumnInfo("overview" )private val overview: String,
-    @ColumnInfo("popularity") val popularity: Double,
-    @ColumnInfo("poster_path" )val posterPath: String,
-    @ColumnInfo("release_date") val releaseDate: String,
-    @ColumnInfo("title") val title: String,
-    @ColumnInfo("vote_count") val voteCount: Int
+    @PrimaryKey @ColumnInfo(name = "id") val id: Int,
+    @ColumnInfo(name = "backdrop_path") val backdropPath: String?,
+    @ColumnInfo(name = "overview" ) val overview: String?,
+    @ColumnInfo(name = "popularity") val popularity: Double?,
+    @ColumnInfo(name = "poster_path" )val posterPath: String?,
+    @ColumnInfo(name = "release_date") val releaseDate: String?,
+    @ColumnInfo(name = "title") val title: String?,
+    @ColumnInfo(name ="vote_count") val voteCount: Int?
 )
-
-
