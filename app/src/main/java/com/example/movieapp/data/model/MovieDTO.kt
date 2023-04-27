@@ -1,5 +1,6 @@
 package com.example.movieapp.data.model
 
+import com.example.movieapp.data.database.MovieEntity
 import com.example.movieapp.domain.entities.Movie
 import java.util.Date
 
@@ -31,6 +32,19 @@ fun MovieDTO.toDomain(): Movie {
         releaseDate = Date(),
         title = title,
         video = video,
+        voteCount = vote_count
+    )
+}
+
+fun MovieDTO.toEntity(): MovieEntity {
+    return MovieEntity(
+        backdropPath = backdrop_path,
+        id = id,
+        overview = overview,
+        popularity = popularity,
+        posterPath = poster_path,
+        releaseDate = "",
+        title = title,
         voteCount = vote_count
     )
 }

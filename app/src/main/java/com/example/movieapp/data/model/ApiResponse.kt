@@ -29,5 +29,4 @@ fun <T> Response<T>.handleResponse(): ApiResponse<T> {
         }
         ApiResponse.ApiError(errorMsg)
     }
-
 }

@@ -3,6 +3,9 @@ package com.example.movieapp.data.database
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.example.movieapp.data.model.MovieDTO
+import com.example.movieapp.domain.entities.Movie
+import java.util.Date
 
 @Entity(tableName = "movies")
 data class MovieEntity(
@@ -15,3 +18,18 @@ data class MovieEntity(
     @ColumnInfo(name = "title") val title: String?,
     @ColumnInfo(name ="vote_count") val voteCount: Int?
 )
+
+fun MovieEntity.toDomain(): Movie {
+    return Movie(
+        adult = false,
+        backdropPath = backdropPath.orEmpty(),
+        id = id,
+        overview = overview.orEmpty(),
+        popularity = popularity ?: 0.0,
+        posterPath = posterPath.orEmpty(),
+        releaseDate = Date(),
+        title = title.orEmpty(),
+        video = false,
+        voteCount = voteCount ?: 0
+    )
+}
