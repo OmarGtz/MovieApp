@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="MovieApp.Widget.Button" parent="Widget.MaterialComponents.Button">
+        <item name="iconSize">24dp</item>
+        <item name="backgroundTint">?colorError</item>
+        <item name="android:textAppearance">@style/TextAppearance.MdcTypographyStyles.Button</item>
+        <item name="android:textColor">?android:textColorPrimary</item>
+        <item name="iconGravity">textStart</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Large</item>
+    </style>
+
+    <style name="MovieApp.Widget.Button.small">
+        <item name="android:minHeight">24dp</item>
+    </style>
+
+    <style name="MovieApp.Widget.Button.outlined" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="iconSize">24dp</item>
+        <item name="android:minHeight">24dp</item>
+        <item name="android:textColor">@color/purple_700</item>
+        <item name="iconTint">@color/purple_700</item>
+        <item name="iconGravity">textStart</item>
+        <item name="strokeColor">?colorError</item>
+        <item name="android:textAppearance">@style/TextAppearance.MdcTypographyStyles.Button</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Small</item>
+    </style>
+
+    <style name="MovieApp.Widget.Button.outlined.black">
+        <item name="strokeColor">?colorOnSurface</item>
+    </style>
+
+    <style name="MovieApp.Widget.BannerView" parent="Widget.MaterialComponents.CardView" >
+        <item name="shapeAppearance">?shapeAppearanceMediumComponent</item>
+        <item name="cardBackgroundColor">@color/banner_color_background</item>
+    </style>
+
+</resources>

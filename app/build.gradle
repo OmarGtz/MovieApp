@@ -57,6 +57,7 @@ dependencies {
 
     // Hilt
     implementation "com.google.dagger:hilt-android:2.44"
+    implementation 'androidx.hilt:hilt-common:1.0.0'
     kapt "com.google.dagger:hilt-compiler:2.44"
 
     //glide
@@ -64,6 +65,9 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.14.2'
+
+    // glide
+    implementation "androidx.work:work-runtime-ktx:2.7.0"
 
     // room
     def room_version = "2.4.2"

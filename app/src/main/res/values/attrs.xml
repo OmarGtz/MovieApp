@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="bannerViewStyle" format="reference" />
+
+    <attr name="state_error" format="boolean" />
+    <attr name="state_warning" format="boolean" />
+    <attr name="state_success" format="boolean" />
+
+    <declare-styleable name="BannerView">
+        <attr name="title" format="string" />
+        <attr name="subtitle" format="string" />
+        <attr name="state_error" />
+        <attr name="state_warning" />
+        <attr name="state_success" />
+     </declare-styleable>
+</resources>
